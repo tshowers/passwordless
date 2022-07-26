@@ -1,0 +1,35 @@
+<footer id="colophon" class="container-fluid site-footer">
+    <div class="container footer-container">
+      <div class="row">
+  
+        <div class="col-md-12 site-bottom-footer">
+  
+          <nav class="footer-nav">
+            <ul class="wow fadeInUp">
+              <li *ngIf="buttonLink1"><a (click)="onNavClick(buttonLink1)" title="Home">{{buttonText1}}</a></li>
+              <li *ngIf="buttonLink2"><a (click)="onNavClick(buttonLink2)" title="About">{{buttonText2}}</a></li>
+              <li *ngIf="buttonLink3"><a (click)="onNavClick(buttonLink3)" title="Contact">{{buttonText3}}</a></li>
+              <li *ngIf="buttonLink4"><a (click)="onNavClick(buttonLink4)" title="Products">{{buttonText4}}</a></li>
+            </ul>
+          </nav>
+  
+          <div class="col-md-12 social-links">
+            <ul class="footer-social-icons wow pulse">
+              <!-- <li *ngIf="socialLink1"><a (click)="onNavClick(socialLink1)" title="{{socialText1}}"><i class="fa fa-fw" [ngClass]="socialIcon1" aria-hidden="true"></i></a></li> -->
+              <!-- <li *ngIf="socialLink2"><a (click)="onNavClick(socialLink2)" title="{{socialText2}}"><i class="fa fa-fw" [ngClass]="socialIcon2" aria-hidden="true"></i></a></li> -->
+              <!-- <li *ngIf="socialLink3"><a (click)="onNavClick(socialLink3)" title="{{socialText3}}"><i class="fa fa-fw" [ngClass]="socialIcon3" aria-hidden="true"></i></a></li> -->
+              <li *ngIf="socialLink4"><a (click)="onNavClick(socialLink4)" title="{{socialText4}}"><i class="fa fa-fw" [ngClass]="socialIcon4" aria-hidden="true"></i></a></li>
+              <li *ngIf="socialLink5"><a (click)="onNavClick(socialLink5)" title="{{socialText5}}"><i class="fa fa-fw" [ngClass]="socialIcon5" aria-hidden="true"></i></a></li>
+            </ul>
+          </div> 
+
+          
+          <div class="col-md-12 copy-text">
+            <p class="wow fadeInUp"> <small innerHTML="{{copyrightText}}"></small> </p>
+          </div>
+  
+        </div> <!-- .site-bottom-footer -->
+  
+      </div>
+    </div>
+  </footer>

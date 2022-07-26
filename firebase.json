@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "site": "taliferro-passwordless",
+      "public": "dist/sign-in",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

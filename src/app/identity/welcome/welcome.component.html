@@ -1,0 +1,111 @@
+<app-menu></app-menu>
+<section id="about---4" class="container-fluid section-block about-4 color-block">
+  <div class="container">
+    <div class="row">
+
+      <!-- Image block -->
+      <div class="col-md-6 col-sm-7 col-xs-12">
+        <div class="about-image-block">
+          <div class="about-image">
+
+            <img *ngIf="imageURL" src="{{imageURL}}" alt="{{headingText}}">
+
+            <!-- Feature block -->
+            <div class="feature-box feature-box-second feature-image wow fadeInUp">
+              <span *ngIf="badgeFeatureText" class="badge badge-second">{{badgeFeatureText}}</span>
+              <i [ngClass]="iconFeature"></i>
+              <p>{{featureText}}</p>
+            </div>
+
+          </div> <!-- .about-image -->
+        </div> <!-- .about-features -->
+      </div>
+
+      <!-- Text block -->
+      <div class="col-md-6 col-sm-5 col-xs-12 about-text">
+        <h2 class="wow fadeInUp">{{headingText}} <span *ngIf="badgeText"
+            class="badge badge-primary">{{badgeText}}</span></h2>
+        <p class="wow fadeInUp">{{descriptionText}}</p>
+        <a *ngIf="buttonLink" href="{{buttonLink}}" class="button button-full wow fadeIn"
+          title="button">{{buttonText}}</a>
+
+        <button *ngIf="customButtonText1" class="btn btn-primary btn-round btn-lg">{{customButtonText1}}
+          <i class="fa" [ngClass]="customButtonIcon1" aria-hidden="true"></i>
+        </button>
+        <button *ngIf="customButtonText2" class="btn btn-success btn-round btn-lg">{{customButtonText2}}
+          <i class="fa" [ngClass]="customButtonIcon2" aria-hidden="true"></i>
+        </button>
+
+      </div>
+
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+</section>
+<section id="features---7" class="container-fluid section-block features features-with-image">
+  <div class="container">
+    <div class="row">
+
+      <h2 class="wow fadeInUp">{{headingText2}}</h2>
+      <div class="block-desc wow fadeInUp">
+        <p>{{descriptionText2}}</p>
+      </div>
+
+      <div class="col-md-4 left-block">
+
+        <!-- Feature 1 -->
+        <div class="feature feature-primary-color wow fadeInLeft">
+          <i [ngClass]="featureIcon1"></i>
+          <h3>{{featureHeading1}}</h3>
+          <p>{{featureDescription1}}</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature feature-primary-color wow fadeInLeft">
+          <i [ngClass]="featureIcon2"></i>
+          <h3>{{featureHeading2}}</h3>
+          <p>{{featureDescription2}}</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature feature-primary-color wow fadeInLeft">
+          <i [ngClass]="featureIcon3"></i>
+          <h3>{{featureHeading3}}</h3>
+          <p>{{featureDescription3}}</p>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 image-block wow zoomIn">
+        <img src="{{imageURL2}}" alt="image">
+      </div>
+
+      <div class="col-md-4 right-block">
+
+        <!-- Feature 4 -->
+        <div class="feature feature-primary-color wow fadeInRight">
+          <i [ngClass]="featureIcon4"></i>
+          <h3>{{featureHeading4}}</h3>
+          <p>{{featureDescription4}}</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature feature-primary-color wow fadeInRight">
+          <i [ngClass]="featureIcon5"></i>
+          <h3>{{featureHeading5}}</h3>
+          <p>{{featureDescription5}}</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature feature-primary-color wow fadeInRight">
+          <i [ngClass]="featureIcon6"></i>
+          <h3>{{featureHeading6}}</h3>
+          <p>{{featureDescription6}}</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,77 @@
+<section id="contact-us---1"
+         class="container-pages ta-vertical-center section-block contact-form-section">
+         <div class="brand-logo float-left"><a class="wow fadeIn" routerLink="/">{{COMPANY_NAME}}</a></div>
+         <div class="pages-tag-line text-white">
+            <div class="h4 wow fadeIn">Send us a message</div>
+            <small>We don't like spam either.</small>
+          </div>
+        
+
+  <div class="container">
+    <div class="row">
+      <!-- Start Contact Form -->
+      <div class="col-md-6 center-form border-box wow fadeIn">
+        <form #userForm="ngForm"
+              (ngSubmit)="onSubmit();userForm.reset();"
+              class="contact-form">
+          <div class="col-md-12">
+            <h2>{{headingText}}</h2>
+          </div>
+          <div class="col-md-6">
+
+            <input [(ngModel)]="firstName"
+                   id="firstName"
+                   class="form-control"
+                   type="text"
+                   name="firstName"
+                   autocomplete="off"
+                   placeholder="First Name"
+                   required>
+          </div>
+          <div class="col-md-6">
+
+            <input [(ngModel)]="lastName"
+                   id="lastName"
+                   class="form-control"
+                   type="text"
+                   name="lastName"
+                   autocomplete="off"
+                   placeholder="Last Name"
+                   required>
+          </div>
+          <div class="col-md-12">
+
+            <input [(ngModel)]="emailAddress"
+                   type="email"
+                   id="emailAddress"
+                   class="form-control"
+                   name="emailAddress"
+                   autocomplete="off"
+                   placeholder="Email Address"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                   required>
+          </div>
+          <div class="col-md-12">
+            <textarea [(ngModel)]="message"
+                      id="message"
+                      class="form-control"
+                      name="message"
+                      placeholder="Message"
+                      required></textarea>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-12 form-btn-submit">
+
+            <input id="contact-button"
+                   class="button button-full contact-submit"
+                   name="contact-submit"
+                   value="Send Message"
+                   type="submit"
+                   [disabled]="!userForm.form.valid">
+          </div>
+        </form>
+      </div>
+      <!-- End Contact Form -->
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+</section>
