@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 /******************************************************************************
  *                 Taliferro License Notice
@@ -22,7 +23,9 @@ import { RouterModule, Routes } from '@angular/router';
  * display.
  ******************************************************************************/
  const routes: Routes = [
-  { path: '', loadChildren: () => import('./identity/identity.module').then(m => m.IdentityModule) },
+  { path: '', component: WelcomeComponent, data: { title: 'Passwordless Sign In Overview' } },
+  { path: 'verify', loadChildren: () => import('./identity/identity.module').then(m => m.IdentityModule) },
+  { path: 'sign-up', loadChildren: () => import('./sign-up/sign-up.module').then(m => m.SignUpModule) },
  ];
 
 @NgModule({

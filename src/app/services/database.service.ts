@@ -38,7 +38,7 @@ export class DatabaseService {
   }
 
   updateByUID(collectionName: string, data: any) {
-    data.updated_at = new Date().getTime();
+    data.lastUpdated = new Date().getTime();
     if (this._authService.firebaseUser) {
       data.uid = this._authService.firebaseUser?.uid;
       this._firestore.collection(collectionName).doc(data.uid).set(data,{merge: true});
@@ -51,7 +51,7 @@ export class DatabaseService {
   }
 
   setUpdateMeta(data: any) : void {
-    data.updated_at = new Date().getTime();
+    data.lastUpdated = new Date().getTime();
     if (this._authService.firebaseUser) {
       data.uid = this._authService.firebaseUser.uid;
       data.updated_by = (this._authService.firebaseUser.email) ? this._authService.firebaseUser.email : '';
@@ -60,14 +60,14 @@ export class DatabaseService {
   }
 
   add(collectionName: string, data: any) {
-    data.created_at = new Date().getTime();
+    data.createdAt = new Date().getTime();
     this.setUpdateMeta(data);
     
     return this._firestore.collection(collectionName).add(data);
   }
 
   addRecordReturnKey(collectionName: string, data: any) {
-    data.created_at = new Date().getTime();
+    data.createdAt = new Date().getTime();
     this.setUpdateMeta(data);
     
     const id = this._firestore.createId();    
@@ -85,7 +85,7 @@ export class DatabaseService {
   }
 
   getByLastUpdated(collectionName: string) {
-    this._itemDocs = this._firestore.collection(collectionName, ref => ref.orderBy('updated_at', "desc"));
+    this._itemDocs = this._firestore.collection(collectionName, ref => ref.orderBy('lastUpdated', "desc"));
     this.items = this._itemDocs.valueChanges({ idField: '_id' });
   }
 

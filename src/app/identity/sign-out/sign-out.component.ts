@@ -10,7 +10,7 @@ export class SignOutComponent implements OnInit {
 
   public logoName = environment.COMPANY_NAME;
   public logoURL = "http://via.placeholder.com/100x100";
-  public homePageLink = "/";
+  public homePageLink = "/verify";
   public headingText = "You are logged out";
 
   constructor() { }

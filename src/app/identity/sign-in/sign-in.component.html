@@ -1,7 +1,7 @@
 <section class="container-pages ta-vertical-center">
   <div class="brand-logo float-left"><a class="wow fadeIn" routerLink="{{homePageLink}}">{{logoName}}</a></div>
   <div class="pages-tag-line text-white">
-    <div class="h4 wow fadeIn">{{headingText}}</div>
+    <div class="h4 wow fadeIn" style="color:white">{{headingText}}</div>
     <small>{{subText}}</small>
   </div>
   <div class="card pages-card col-lg-4 col-md-6 col-sm-6">
@@ -24,7 +24,7 @@
             [disabled]="!userForm.form.valid">{{submitButtonText}}</button>
         </div>
       </form>
-      <hr>
+      <!-- <hr>
       <h6 class="text-center text-theme">{{socialMediaTitle}}</h6>
       <div class="site-footer wow fadeInUp">
         <div class="col-md-12 site-bottom-footer">
@@ -39,10 +39,11 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
+<app-footer></app-footer>
+
 <div class="half-circle"></div>
 <div class="small-circle"></div>
-<app-footer></app-footer>

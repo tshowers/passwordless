@@ -66,7 +66,7 @@ export class SignInComponent implements OnInit {
 
   onSubmit(): void {
     this._authService.signInWithEmail(this.emailAddress);
-    this._router.navigate(['/check-inbox']);
+    this._router.navigate(['verify', 'check-inbox']);
   }
 
   back(): void {
@@ -120,7 +120,7 @@ export class SignInComponent implements OnInit {
 
       this._router.navigate(['welcome']);
     } else {
-      this._router.navigate(['error']);
+      this._router.navigate(['verify', 'error']);
     }
   }
 

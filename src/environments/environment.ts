@@ -13,7 +13,7 @@ export const environment = {
     messagingSenderId: "353334442276",
     appId: "1:353334442276:web:45b043204cc83aa7725bb1"
   },
-  summaryRedirect: 'http://localhost:4200/email-check',
+  summaryRedirect: 'http://localhost:4200/verify/email-check',
   CARTS: "carts",
   SAVED_CARTS: "saved-carts",
   CUSTOMERS: "customers",
@@ -28,7 +28,7 @@ export const environment = {
   LOGO_PATH: "logo",
   FILE_PATH: "files",
   RESULTS_PATH: "results",
-  COMPANY_NAME: 'Taliferro'
+  COMPANY_NAME: 'Taliferro Group'
 };
 
 /*

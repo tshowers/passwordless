@@ -2,8 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { DatabaseService  } from '../services/database.service';
-
-
+import { UserService } from '../services/user.service';
+import { SettingService } from '../services/setting.service';
 /*******************************************************************************
  *                 Taliferro License Notice
  *
@@ -28,7 +28,7 @@ import { DatabaseService  } from '../services/database.service';
   imports: [
     CommonModule
   ],
-  providers: [AuthService, DatabaseService],
+  providers: [AuthService, DatabaseService, UserService, SettingService],
 
 })
 export class CoreModule { 

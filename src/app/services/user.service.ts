@@ -4,7 +4,7 @@ import firebase from 'firebase/compat/app';
 import { User } from '../shared/data/user.model';
 import { environment } from 'src/environments/environment';
 
-import { Subscription, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -15,17 +15,20 @@ export class UserService {
   private _collectionName: string = environment.USERS;
   public user = new Subject<User>();
 
-  constructor(private _firestore: AngularFirestore) { 
+  constructor(private _firestore: AngularFirestore) {
 
   }
 
-  setUser(user: User) : void {
+  setUser(user: User): void {
+    if (!environment.production)
+      console.log('Setting User', user);
+
     this._firestore.collection(this._collectionName).doc(user._id).set(user, { merge: true });
     this.user.next(user);
   }
 
-  getNewUserRecordUsingFirebase(firebaseUser: firebase.User) : User {
-    return <User> {
+  getNewUserRecordUsingFirebase(firebaseUser: firebase.User): User {
+    return <User>{
       email: firebaseUser.email,
       _id: firebaseUser.uid,
       display_name: firebaseUser.displayName,

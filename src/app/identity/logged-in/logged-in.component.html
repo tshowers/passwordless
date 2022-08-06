@@ -1,0 +1,75 @@
+<div id="page" class="site">
+    <!-- Start Header -->
+    <header id="masthead" class="site-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg" style="background-color: white;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.taliferro.com">
+                    <img src="https://www.taliferro.com/assets/images/taliferro-group-logo.png" alt="" width="48" height="48" class="d-inline-block align-text-top"> Taliferro Group </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.taliferro.com/#products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.taliferro.com/#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.taliferro.com/#about">About</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text"> 425.305.3748 </span>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <section class="container-pages  ta-vertical-center">
+        <div class="brand-logo float-left"><a routerLink="/">Taliferro Group</a></div>
+        <div class="pages-tag-line text-white">
+            <div class="h4 wow fadeInDown" style="color: white">See how easy that was?<br>Passwordless Authentication</div>
+            <small class="wow fadeIn">Keep it Simple</small>
+        </div>
+        <div class="card pages-card col-lg-4 col-md-6 col-sm-6">
+            <div class="card-body ">
+                <div class="user-img text-center" *ngIf="authService.firebaseUser && authService.firebaseUser.photoURL">
+                    <img src="authService.firebaseUser.photoURL" alt="authService.firebaseUser.displayName" class="text-center">
+                </div>
+                <div class="h4 text-center text-theme wow fadeIn">
+                    <strong *ngIf="authService.firebaseUser">{{authService.firebaseUser.displayName}}</strong>
+                </div>
+                <div class="text-center text-dark wow fadeIn">
+                    <span *ngIf="authService.firebaseUser"><i class="fa fa-lock fa-4x" aria-hidden="true"></i> </span>
+                    <span *ngIf="!authService.firebaseUser"><i class="fa fa-unlock fa-4x" aria-hidden="true"></i></span>
+                </div>
+                <div class="small text-center text-dark wow fadeIn">
+                    <span *ngIf="authService.firebaseUser">Status: <strong>Logged In</strong> </span>
+                    <span *ngIf="!authService.firebaseUser">Status: Not Logged In</span>
+                </div>
+                <div class="small text-center text-dark wow fadeIn" *ngIf="authService.firebaseUser"> {{authService.firebaseUser.email}} <span *ngIf="authService.firebaseUser.emailVerified"> <i
+                            class="fa fa-check-circle-o" aria-hidden="true"></i></span>
+                    <span *ngIf="!authService.firebaseUser.emailVerified"></span>
+                </div>
+                <div class="text-center" *ngIf="!authService.firebaseUser">
+                    <small>
+                        <a routerLink="/verify" class="text-theme">Sign In</a>
+                    </small>
+                </div>
+                <div class="text-center" *ngIf="authService.firebaseUser">
+                    <small>
+                        <a routerLink="/verify/bye" class="text-theme">Sign Out</a>
+                    </small>
+                </div>
+            </div>
+            <!-- end card-body -->
+        </div>
+        <!-- end card -->
+    </section>
+    <app-footer></app-footer>
+</div>
+<!-- end section container -->
+<div class="half-circle"></div>
+<div class="small-circle"></div>

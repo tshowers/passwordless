@@ -9,22 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class WelcomeComponent implements OnInit {
 
-  public imageURL = "/assets/passwordless_service.jpeg";
-  public badgeFeatureText = null;
-  public iconFeature = "icon-layers";
-  public featureText = "User-friendly Interface";
-  public headingText = "Password-less Sign In";
-  public badgeText = null;
-  public descriptionText = "No password needed. Passwordless authentication is actually one of the most secure forms or authentication.";
-  public buttonText = "Read More";
-  public buttonLink = "https://www.cyberark.com/what-is/passwordless-authentication/";
-
-  public customButtonText1 = null;
-  public customButtonIcon1 = "fa-cart-plus";
-
-  
-  public customButtonText2 = null;
-  public customButtonIcon2 = "fa-cart-plus";
 
 
   public headingText2 = "Features";

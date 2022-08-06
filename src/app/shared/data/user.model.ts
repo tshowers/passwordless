@@ -2,7 +2,11 @@ export interface User {
     _id: string,
     email?: string;
     photoURL?: string;
-    display_name?: string;
+    displayName?: string;
     emailVerified?: boolean;
-    phone_number?: string;
+    phoneNumber?: string;
+    firstName?: string,
+    lastName?: string,
+    companyName?: string,
+    companyId?: string
 }
