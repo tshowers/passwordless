@@ -31,10 +31,10 @@ export class UserService {
     return <User>{
       email: firebaseUser.email,
       _id: firebaseUser.uid,
-      display_name: firebaseUser.displayName,
+      displayName: firebaseUser.displayName,
       photoURL: firebaseUser.photoURL,
       emailVerified: firebaseUser.emailVerified,
-      phone_number: firebaseUser.phoneNumber,
+      phoneNumber: firebaseUser.phoneNumber,
     }
   }
 }

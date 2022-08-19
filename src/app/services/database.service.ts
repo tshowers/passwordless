@@ -54,7 +54,7 @@ export class DatabaseService {
     data.lastUpdated = new Date().getTime();
     if (this._authService.firebaseUser) {
       data.uid = this._authService.firebaseUser.uid;
-      data.updated_by = (this._authService.firebaseUser.email) ? this._authService.firebaseUser.email : '';
+      data.updatedBy = (this._authService.firebaseUser.email) ? this._authService.firebaseUser.email : '';
     }
 
   }

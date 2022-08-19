@@ -20,7 +20,7 @@ export class EmailCheckComponent implements OnInit {
   public idMismatch: boolean = false;
   public isRelogin: boolean = false;
 
-  public errorMessage = new Subject<string>();
+  public errorMessage: any;
 
 
   constructor(private _router: Router, private _authService: AuthService, private _location: Location, public userService: UserService, private _settingService: SettingService) { }
@@ -38,14 +38,19 @@ export class EmailCheckComponent implements OnInit {
     const email = window.localStorage.getItem('emailForSignIn');
     window.localStorage.removeItem('emailForSignIn');
 
+    // if (!environment.production)
+      console.log("Processing", email, environment.production, environment.summaryRedirect);
     this.processEmailAddress(email);
   }
 
   private processEmailAddress(email: any) {
-    if (email)
+    if (email) {
       this.beginLoginWithEmail(email, this.url);
-    else
+    }
+    else {
       this.isRelogin = true;
+      this.errorMessage = "Something went wrong. Either your email address is wrong, or you are using a different browser other than the browser you used to identify yourself, or the link in your email is expired. Make sure you use the same browser for both signing in and verifying. If you are unsure copy the link in the email that was sent to you and paste it in the address bar of the same browser you that says 'Check Your Email'.";
+    }
   }
 
   private async beginLoginWithEmail(email: any, url: any) {
@@ -53,14 +58,16 @@ export class EmailCheckComponent implements OnInit {
     const isLoginOK: boolean = (loginOK == 'true');
 
     if (isLoginOK) {
-      if (!environment.production)
+      // if (!environment.production)
         console.log("LOG IN OK", email);
       this.associateUser(email);
     } else {
+      // if (!environment.production)
+      console.log("LOG NOT OK", email);
       this.isRelogin = true;
-      this.errorMessage.next("Something went wrong. Either your email address is wrong, or you are using a different browser other than the browser you used to identify yourself, or the link in your email is expired.");
+      this.errorMessage = "Something went wrong. Either your email address is wrong, or you are using a different browser other than the browser you used to identify yourself, or the link in your email is expired. Make sure you use the same browser for both signing in and verifying. If you are unsure copy the link in the email that was sent to you and paste it in the address bar of the same browser you that says 'Check Your Email'.";
       setTimeout(() => {
-        this.errorMessage.next('');
+        this.errorMessage = ('');
       }, 6000);
 
     }
@@ -73,7 +80,7 @@ export class EmailCheckComponent implements OnInit {
 
       let newUserCheck = this.isNewUserSignUpCheck(u);
 
-      if (!environment.production)
+      // if (!environment.production)
         console.log("Setting User with", u, newUserCheck);
 
       this.userService.setUser(u);
@@ -96,7 +103,7 @@ export class EmailCheckComponent implements OnInit {
     this.removeNewSignUpInfo();
 
     if (firstName && lastName) {
-      if (!environment.production)
+      // if (!environment.production)
         console.log("Must be new registration", companyName, companyId, firstName, lastName);
 
       user.companyName = (companyName) ? companyName : '';
@@ -122,7 +129,11 @@ export class EmailCheckComponent implements OnInit {
       uid: user._id,
     }
 
-    this._settingService.setSetting(user._id, data);
+    let storeID = this._settingService.newStoreSetting(data);
+
+    user.companyId = storeID;
+    
+    this.userService.setUser(user);
 
   }
 }

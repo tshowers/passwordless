@@ -9,7 +9,7 @@ export const environment = {
     messagingSenderId: "353334442276",
     appId: "1:353334442276:web:45b043204cc83aa7725bb1"
   },
-  summaryRedirect: 'http://taliferro-passwordless.web.app/verify/email-check',
+  summaryRedirect: 'https://passwordless.taliferro.com/verify/email-check',
   CARTS: "carts",
   SAVED_CARTS: "saved-carts",
   CUSTOMERS: "customers",

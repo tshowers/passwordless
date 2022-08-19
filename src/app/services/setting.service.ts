@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
+import { DatabaseService } from './database.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class SettingService {
 
   private _collectionName: string = environment.SETTINGS;
 
-  constructor(private _firestore: AngularFirestore) { }
+  public newStoreId: any;
+
+  constructor(private _firestore: AngularFirestore, private _dataService: DatabaseService) { }
 
   setSetting(uid: string, data: any): void {
     if (!data.createdAt)
@@ -21,6 +24,10 @@ export class SettingService {
       console.log('New User Settings', uid);
 
     this._firestore.collection(this._collectionName).doc(uid).set(data, { merge: true });
+  }
+
+  newStoreSetting(data: any): string {
+    return this._dataService.addRecordReturnKey(this._collectionName, data);
   }
 
 }

@@ -46,8 +46,8 @@
                     <span *ngIf="!authService.firebaseUser"><i class="fa fa-unlock fa-4x" aria-hidden="true"></i></span>
                 </div>
                 <div class="small text-center text-dark wow fadeIn">
-                    <span *ngIf="authService.firebaseUser">Status: <strong>Logged In</strong> </span>
-                    <span *ngIf="!authService.firebaseUser">Status: Not Logged In</span>
+                    <span *ngIf="authService.firebaseUser">Status: <strong>Success</strong> </span>
+                    <span *ngIf="!authService.firebaseUser">Status: Error</span>
                 </div>
                 <div class="small text-center text-dark wow fadeIn" *ngIf="authService.firebaseUser"> {{authService.firebaseUser.email}} <span *ngIf="authService.firebaseUser.emailVerified"> <i
                             class="fa fa-check-circle-o" aria-hidden="true"></i></span>
@@ -59,9 +59,16 @@
                     </small>
                 </div>
                 <div class="text-center" *ngIf="authService.firebaseUser">
-                    <small>
+                    
+                <small>
+
                         <a routerLink="/verify/bye" class="text-theme">Sign Out</a>
                     </small>
+                    <div class="text-center mt-5"><small>Return to</small> <br> <a href="https://e-commerce.taliferro.com" class="btn btn-theme text-white">e-Commerce</a> 
+                        <a href="https:/crm.taliferro.com" class="btn btn-theme text-white">CRM</a><br>
+                        <a href="https:/collaboration.taliferro.com" class="btn btn-theme text-white">Tasks</a>
+                        <a href="https:/messaging.taliferro.com" class="btn btn-theme text-white">Messaging</a>
+                    </div>
                 </div>
             </div>
             <!-- end card-body -->

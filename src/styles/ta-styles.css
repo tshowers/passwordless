@@ -1486,7 +1486,6 @@ span.ta-darkcolor, h2.ta-darkcolor, h4.ta-darkcolor {
 }
 
 .ta-vertical-center {
-  padding-top: 40px;
   padding-left: 4.5rem;
   padding-right: 4.5rem;
   min-height: 100%;
@@ -1530,7 +1529,6 @@ span.ta-darkcolor, h2.ta-darkcolor, h4.ta-darkcolor {
   }
 
   .ta-vertical-center {
-    margin-top: 40px;
     min-height: 100%;
     /* Fallback for browsers do NOT support vh unit */
     min-height: 100vh;
